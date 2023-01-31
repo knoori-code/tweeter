@@ -1,0 +1,22 @@
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  background-color: #4056A1;
+  width: 100%;
+  color: #FFFFFF;
+  font-family: "Bungee";
+  font-size: 24px;
+  padding: 1.5em
+}
+
+.nav-arrow {
+  display: flex;
+  flex-direction: column
+}
+
+.fa-solid {
+  padding-left: 50%;
+}
