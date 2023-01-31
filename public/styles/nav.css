@@ -1,20 +1,19 @@
-
-
 nav {
   display: flex;
   justify-content: space-between;
   height: 120px;
-  background-color: #4056A1;
+  background-color: #4056a1;
   width: 100%;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: "Bungee";
   font-size: 24px;
-  padding: 1.5em
+  padding: 1.5em;
+  position: fixed;
 }
 
 .nav-arrow {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 
 .fa-solid {
