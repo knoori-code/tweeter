@@ -3,16 +3,16 @@ $(document).ready(function () {
   $("#tweet-field").on("input", function () {
     let currentLength = $(this).val().length;
     let charsLeft = 140 - currentLength;
-    console.log(charsLeft);
+
+    let counter = document.getElementById("counter");
 
     if (charsLeft < 0) {
-      $(".counter").css("color", "red");
-      $(".counter").html(charsLeft);
+      $(counter).css("color", "red");
     }
 
     if (charsLeft >= 0) {
-      $(".counter").html(charsLeft);
-      $(".counter").css("color", "black");
+      $(counter).css("color", "black");
     }
+    $(counter).html(charsLeft);
   });
 });
