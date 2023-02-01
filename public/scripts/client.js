@@ -13,7 +13,7 @@ $(document).ready(function () {
     </header>
     <p class="quote">${tweetObj.content.text}</p>
     <footer>
-      <span>${tweetObj.created_at}</span>
+      <span>${timeago.format(tweetObj.created_at)}</span>
       <span id="icons">
         <i class="fa-solid fa-flag"></i>
         <i class="fa-solid fa-retweet"></i>
@@ -35,13 +35,11 @@ $(document).ready(function () {
   const loadTweets = function () {
     $.get("/tweets", function (data) {
       renderTweets(data);
-      console.log(data)
+      console.log(data);
     });
   };
 
-  // renderTweets(tweetData);
-
-  loadTweets()
+  loadTweets();
 
   $(".form").on("submit", function (event) {
     event.preventDefault();
