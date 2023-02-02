@@ -32,3 +32,55 @@ main {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+@media only screen and (min-width: 1024px) {
+  .main-content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .main-header {
+    height: 536px;
+    width: 35%;
+    margin-top: 9.2em;
+    margin-right: 5em;
+    margin-left: auto;
+  }
+
+  .container {
+    width: 45%;
+    float: right;
+    padding-top: 5em;
+  }
+}
+
+/* .hero {
+    width: 33.3%;
+    float: left;
+  }
+
+  .feature {
+    line-height: 300px;
+  }
+
+  .menu {
+    background-color: #111111;
+    color: #f0f0f0;
+    text-align: left;
+  }
+
+  .tagline {
+    display: inline;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+    color: tomato;
+    float: right;
+  }
+
+  .main {
+    max-width: 1024px;
+    font-size: 16px;
+    margin: 0 auto;
+  }
+} */
