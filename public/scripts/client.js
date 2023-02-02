@@ -43,7 +43,18 @@ $(document).ready(function () {
 
   $(".form").on("submit", function (event) {
     event.preventDefault();
+
+    console.log($("#tweet-field").val().length)
+    if ($("#tweet-field").val().length === 0) {
+      return alert("The input field cannot be blank");
+    }
+
+    if ($("#tweet-field").val().length > 140) {
+      return alert("Your tweet must be 140 characters or less");
+    }
+
     const string = $(this).serialize();
     $.post("/tweets", string);
   });
+
 });
