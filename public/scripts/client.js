@@ -52,14 +52,14 @@ $(document).ready(function () {
       const error1 = `<div class="error-message">The input field cannot be empty</div>`;
       $(".error").append(error1);
       $(".error").slideDown(800);
-      return
+      return;
     }
 
     if ($("#tweet-field").val().length > 140) {
       const error2 = `<div class="error-message">The Tweet must be 140 characters or lower.  Please try again</div>`;
       $(".error").append(error2);
       $(".error").slideDown(800);
-      return
+      return;
     }
 
     const string = $(this).serialize();
