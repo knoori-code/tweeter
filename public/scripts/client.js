@@ -32,29 +32,34 @@ $(document).ready(function () {
     }
   };
 
+
+
   const loadTweets = function () {
     $.get("/tweets", function (data) {
-      renderTweets(data);
-      console.log(data);
+      const sortedTweets = data.sort((a, b) => b.created_at - a.created_at);
+      renderTweets(sortedTweets);
     });
   };
 
   loadTweets();
-
+  
   $(".form").on("submit", function (event) {
     event.preventDefault();
-
-    console.log($("#tweet-field").val().length)
+    
     if ($("#tweet-field").val().length === 0) {
       return alert("The input field cannot be blank");
     }
-
+    
     if ($("#tweet-field").val().length > 140) {
       return alert("Your tweet must be 140 characters or less");
     }
-
+    
     const string = $(this).serialize();
-    $.post("/tweets", string);
+    $.post("/tweets", string, function() {
+      $("#tweets-container").empty();
+      loadTweets();
+    });
+    
   });
 
 });
