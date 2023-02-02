@@ -4,6 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function () {
+  $(".error").slideUp("slow");
+
   const createTweetElement = function (tweetObj) {
     const tweetArticle = `
   <article>
@@ -32,8 +34,6 @@ $(document).ready(function () {
     }
   };
 
-
-
   const loadTweets = function () {
     $.get("/tweets", function (data) {
       const sortedTweets = data.sort((a, b) => b.created_at - a.created_at);
@@ -42,24 +42,30 @@ $(document).ready(function () {
   };
 
   loadTweets();
-  
+
   $(".form").on("submit", function (event) {
     event.preventDefault();
-    
+    $(".error").slideUp(200);
+    $(".error").empty();
+
     if ($("#tweet-field").val().length === 0) {
-      return alert("The input field cannot be blank");
+      const error1 = `<div class="error-message">The input field cannot be empty</div>`;
+      $(".error").append(error1);
+      $(".error").slideDown(800);
+      return
     }
-    
+
     if ($("#tweet-field").val().length > 140) {
-      return alert("Your tweet must be 140 characters or less");
+      const error2 = `<div class="error-message">The Tweet must be 140 characters or lower.  Please try again</div>`;
+      $(".error").append(error2);
+      $(".error").slideDown(800);
+      return
     }
-    
+
     const string = $(this).serialize();
-    $.post("/tweets", string, function() {
+    $.post("/tweets", string, function () {
       $("#tweets-container").empty();
       loadTweets();
     });
-    
   });
-
 });

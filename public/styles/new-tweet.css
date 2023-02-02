@@ -25,6 +25,10 @@
   border: none;
 }
 
+[type="submit"]:hover {
+  box-shadow: 6px 6px 6px 6px #777;
+}
+
 article {
   margin-top: 60px;
   margin-bottom: 60px;
@@ -76,4 +80,15 @@ footer {
 
 .fa-solid:hover {
   color: rgb(22, 162, 29);
+}
+
+.error-message {
+  color: #f90404;
+  border-style: solid;
+  border-width: 0.2em;
+  border-color: red;
+  text-align: center;
+  height: 2.5em;
+  margin: 20px;
+  padding: 10px;
 }
