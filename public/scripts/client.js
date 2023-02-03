@@ -4,16 +4,24 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function () {
-  $(".error").slideUp("slow");
+  // Function to prevent cross-site scripting by escaping
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   const createTweetElement = function (tweetObj) {
     const tweetArticle = `
   <article>
     <header>
-      <span>${tweetObj.user.name}</span>
+      <span>
+        <i class="fa-regular fa-face-smile"></i>
+        <span>${tweetObj.user.name}</span>
+      </span>
       <span>${tweetObj.user.handle}</span>
     </header>
-    <p class="quote">${tweetObj.content.text}</p>
+    <p class="quote">${escape(tweetObj.content.text)}</p>
     <footer>
       <span>${timeago.format(tweetObj.created_at)}</span>
       <span id="icons">
@@ -45,7 +53,7 @@ $(document).ready(function () {
 
   $(".form").on("submit", function (event) {
     event.preventDefault();
-    $(".error").slideUp(200);
+    $(".error").slideUp("fast");
     $(".error").empty();
 
     if ($("#tweet-field").val().length === 0) {
@@ -56,7 +64,7 @@ $(document).ready(function () {
     }
 
     if ($("#tweet-field").val().length > 140) {
-      const error2 = `<div class="error-message">The Tweet must be 140 characters or lower.  Please try again</div>`;
+      const error2 = `<div class="error-message">The Tweet must be 140 characters or lower</div>`;
       $(".error").append(error2);
       $(".error").slideDown(800);
       return;
@@ -64,6 +72,10 @@ $(document).ready(function () {
 
     const string = $(this).serialize();
     $.post("/tweets", string, function () {
+      // Clear tweet textarea and character counter
+      $("#tweet-field").val("");
+      $("#counter").val(140);
+
       $("#tweets-container").empty();
       loadTweets();
     });

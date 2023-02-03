@@ -43,11 +43,14 @@ main {
     height: 536px;
     width: 35%;
     margin-top: 9.2em;
-    margin-right: 5em;
-    margin-left: auto;
+    margin-right: 4em;
+    margin-left: 3em;
+    min-width: 300px;
   }
 
   .container {
+    min-width: 500px;
+    max-width: 850px;
     width: 45%;
     float: right;
     padding-top: 5em;
