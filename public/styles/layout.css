@@ -29,6 +29,10 @@ main {
   background-color: #f4f1ec;
 }
 
+.container {
+  padding-top: 3em;
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
@@ -49,6 +53,7 @@ main {
   }
 
   .container {
+    margin-top: 4.5em;
     min-width: 500px;
     max-width: 850px;
     width: 45%;
@@ -56,34 +61,3 @@ main {
     padding-top: 5em;
   }
 }
-
-/* .hero {
-    width: 33.3%;
-    float: left;
-  }
-
-  .feature {
-    line-height: 300px;
-  }
-
-  .menu {
-    background-color: #111111;
-    color: #f0f0f0;
-    text-align: left;
-  }
-
-  .tagline {
-    display: inline;
-    font-style: italic;
-    font-weight: normal;
-    font-size: 12px;
-    color: tomato;
-    float: right;
-  }
-
-  .main {
-    max-width: 1024px;
-    font-size: 16px;
-    margin: 0 auto;
-  }
-} */

@@ -37,7 +37,7 @@ $(document).ready(function () {
 
   const renderTweets = function (tweetArray) {
     for (const tweetObj of tweetArray) {
-      let tweetArticle = createTweetElement(tweetObj);
+      const tweetArticle = createTweetElement(tweetObj);
       $("#tweets-container").append(tweetArticle);
     }
   };
@@ -59,14 +59,14 @@ $(document).ready(function () {
     if ($("#tweet-field").val().length === 0) {
       const error1 = `<div class="error-message">The input field cannot be empty</div>`;
       $(".error").append(error1);
-      $(".error").slideDown(800);
+      $(".error").slideDown(100);
       return;
     }
 
     if ($("#tweet-field").val().length > 140) {
       const error2 = `<div class="error-message">The Tweet must be 140 characters or lower</div>`;
       $(".error").append(error2);
-      $(".error").slideDown(800);
+      $(".error").slideDown(100);
       return;
     }
 
@@ -78,6 +78,11 @@ $(document).ready(function () {
 
       $("#tweets-container").empty();
       loadTweets();
+    }).fail(function () {
+      const error2 = `<div class="error-message">Something went wrong with the server</div>`;
+      $(".error").append(error2);
+      $(".error").slideDown(100);
+      return;
     });
   });
 });

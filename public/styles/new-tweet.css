@@ -63,12 +63,14 @@ footer {
 }
 
 .quote {
+  text-align: left;
+  overflow-wrap: break-word;
   font-weight: bold;
   margin: auto;
   width: 95%;
   padding-bottom: 2em;
-  text-align: center;
   padding-top: 60px;
+  padding-left: .8em;
   border-bottom: 3px solid #1c1717;
 }
 
