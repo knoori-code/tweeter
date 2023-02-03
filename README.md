@@ -14,3 +14,8 @@ Tweeter is a simple, single-page Twitter clone built using HTML, CSS, JS and jQu
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots
+
+!["Screenshot of desktop design layout"](https://github.com/knoori-code/tweeter/blob/master/docs/tweeter-desktop-design.png?raw=true)
+!["Screenshot of mobile desing layout"](https://github.com/knoori-code/tweeter/blob/master/docs/tweeter-mobile-design.png?raw=true)
